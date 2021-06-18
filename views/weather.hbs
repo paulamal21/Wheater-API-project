@@ -1,0 +1,22 @@
+<h1>Weather request</h1>
+<form action="/weather" method="POST">
+  <label for="location">city: </label>
+  <input type="text" name="location" />
+  <label for="countryCode">country code: </label>
+  <input type="text" name="countryCode" />
+  <input type="submit" value="submit" class="submit" />
+</form>
+
+<br />
+
+{{#if err}}
+  <h2>{{err}}</h2>
+{{/if}}
+{{#if displayWeather}}
+  <h2>Today's weather in {{name}} :</h2>
+  <ul>
+    {{#each data}}
+      <li>{{@key}} : {{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
